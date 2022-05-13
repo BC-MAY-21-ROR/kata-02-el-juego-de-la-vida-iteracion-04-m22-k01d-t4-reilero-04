@@ -14,9 +14,8 @@ class Game
   def play
     # @matrices = 50
     print "First Generation\n"
-    first_matrix = (Matrix.new(height, width).create)
+    first_matrix = Matrix.new(height, width).create
     PrintCodifiedMatrix.new(first_matrix).printing
-    
 
     @matrices.times do
       sleep(0.15)
@@ -24,18 +23,18 @@ class Game
     end
   end
 
-#   def print_codified_matrix(matrix)
-#     matrix.each do |array|
-#       array.each do |elemento|
-#         if elemento == 1
-#           print ' * '.white
-#         else
-#           print ' . '.black
-#         end
-#       end
-#       print "\n"
-#     end
-#   end
+  #   def print_codified_matrix(matrix)
+  #     matrix.each do |array|
+  #       array.each do |elemento|
+  #         if elemento == 1
+  #           print ' * '.white
+  #         else
+  #           print ' . '.black
+  #         end
+  #       end
+  #       print "\n"
+  #     end
+  #   end
 
   def dead_or_alive(matriz)
     new_matriz = Array.new(matriz.length) { Array.new(matriz[0].length) {} }
@@ -106,7 +105,6 @@ class Game
 
   attr_reader :height, :width
 end
-
 
 new_game = Game.new(20, 20, 1500)
 new_game.play
