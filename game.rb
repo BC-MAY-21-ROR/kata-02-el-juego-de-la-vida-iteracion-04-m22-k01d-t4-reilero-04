@@ -14,26 +14,28 @@ class Game
   def play
     # @matrices = 50
     print "First Generation\n"
-    first_matrix = print_codified_matrix(Matrix.new(height, width).create)
+    first_matrix = (Matrix.new(height, width).create)
+    PrintCodifiedMatrix.new(first_matrix).printing
+    
 
     @matrices.times do
       sleep(0.15)
-      first_matrix = print_codified_matrix(dead_or_alive(first_matrix))
+      first_matrix = PrintCodifiedMatrix.new(dead_or_alive(first_matrix)).printing
     end
   end
 
-  def print_codified_matrix(matrix)
-    matrix.each do |array|
-      array.each do |elemento|
-        if elemento == 1
-          print ' * '.white
-        else
-          print ' . '.black
-        end
-      end
-      print "\n"
-    end
-  end
+#   def print_codified_matrix(matrix)
+#     matrix.each do |array|
+#       array.each do |elemento|
+#         if elemento == 1
+#           print ' * '.white
+#         else
+#           print ' . '.black
+#         end
+#       end
+#       print "\n"
+#     end
+#   end
 
   def dead_or_alive(matriz)
     new_matriz = Array.new(matriz.length) { Array.new(matriz[0].length) {} }

@@ -2,8 +2,12 @@
 require_relative 'matrix'
 
 class PrintCodifiedMatrix
-  def printing(matrix)
-    matrix.each do |array|
+	def initialize(matrix)
+		@matrix = matrix
+	end
+
+  def printing
+    @matrix.each do |array|
       array.each do |elemento|
         if elemento == 1
           print ' * '
@@ -16,6 +20,6 @@ class PrintCodifiedMatrix
   end
 end
 
-new_print = PrintCodifiedMatrix.new
-new_print.printing(Matrix.new(30,50).create)
+new_print = PrintCodifiedMatrix.new(Matrix.new(30,50).create).printing
+
 
