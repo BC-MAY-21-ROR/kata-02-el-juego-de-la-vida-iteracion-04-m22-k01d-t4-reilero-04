@@ -2,6 +2,7 @@
 
 require 'colorize'
 require_relative 'matrix'
+require_relative 'codified_matrix'
 
 class Game
   def initialize(height, width, generations)
@@ -13,7 +14,7 @@ class Game
   def play
     # @matrices = 50
     print "First Generation\n"
-    first_matrix = print_codified_matrix(Matrix.new(height,width).create)
+    first_matrix = print_codified_matrix(Matrix.new(height, width).create)
 
     @matrices.times do
       sleep(0.15)
@@ -41,7 +42,7 @@ class Game
         matriz.each_with_index do |celulas, index_celulas|
           celulas.each_with_index do |celula, index_celula|
             next unless index_celula == index_vecino && index_celulas == index_vecinos
-  
+
             new_matriz[index_celulas][index_celula] = if celula == 1
                                                         if vecino > 3 || vecino < 2
                                                           0
@@ -61,27 +62,26 @@ class Game
     # print_codified_matriz(new_matriz)
     new_matriz
   end
-  
+
   def neighboors(matriz)
     new_matriz = matriz
     new_matriz.each_with_index.map do |array, index_array|
       array.each_with_index.map do |_celula, index_celula|
         neighboors = []
-  
+
         if index_celula == (array.length - 1)
-          neighboors.push(array[index_celula - 1])
         else
           neighboors.push(array[index_celula + 1])
-          neighboors.push(array[index_celula - 1])
         end
-  
+        neighboors.push(array[index_celula - 1])
+
         if index_celula == array.length - 1
           neighboors.push(new_matriz[index_array - 1][index_celula - 1], new_matriz[index_array - 1][index_celula])
         else
           neighboors.push(new_matriz[index_array - 1][index_celula - 1], new_matriz[index_array - 1][index_celula],
                           new_matriz[index_array - 1][index_celula + 1])
         end
-  
+
         if index_array == (new_matriz.length - 1)
           'none'
         elsif index_celula.zero?
@@ -94,14 +94,11 @@ class Game
           neighboors.push(new_matriz[index_array + 1][index_celula - 1], new_matriz[index_array + 1][index_celula],
                           new_matriz[index_array + 1][index_celula + 1])
         end
-  
+
         neighboors.sum
       end
     end
   end
-  
-
-  
 
   private
 
@@ -109,14 +106,5 @@ class Game
 end
 
 
-
-
-# my_matriz = create_matriz(10, 10)
-# my_matriz
-# print_codified_matriz(my_matriz)
-
-# dead_or_alive(10, 10)
-
-
-new_game = Game.new(20,20, 1500)
+new_game = Game.new(20, 20, 1500)
 new_game.play
