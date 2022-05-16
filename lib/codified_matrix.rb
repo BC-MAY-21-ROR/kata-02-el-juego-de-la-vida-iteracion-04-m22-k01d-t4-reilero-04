@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # require 'colorize'
 require_relative 'matrix'
 
 class PrintCodifiedMatrix
-	def initialize(matrix)
-		@matrix = matrix
-	end
+  def initialize(matrix)
+    @matrix = matrix
+  end
 
   def printing
     @matrix.each do |array|
@@ -20,6 +22,4 @@ class PrintCodifiedMatrix
   end
 end
 
-new_print = PrintCodifiedMatrix.new(Matrix.new(30,50).create).printing
-
-
+new_print = PrintCodifiedMatrix.new(Matrix.new(30, 50).create).printing

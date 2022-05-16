@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   class Neighboors
 def neighboors(matriz)
   matriz.each_with_index.map do |row, x|
@@ -9,7 +11,7 @@ def neighboors(matriz)
       left = []
 
       # push to top
-      top.push(matriz[x - 1][y - 1], matriz[x - 1][y], matriz[x - 1][y + 1]) unless x == 0
+      top.push(matriz[x - 1][y - 1], matriz[x - 1][y], matriz[x - 1][y + 1]) unless x.zero?
       print top
       print "\n"
     end
