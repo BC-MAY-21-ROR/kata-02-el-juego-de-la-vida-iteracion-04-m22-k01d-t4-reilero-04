@@ -23,19 +23,6 @@ class Game
     end
   end
 
-  #   def print_codified_matrix(matrix)
-  #     matrix.each do |array|
-  #       array.each do |elemento|
-  #         if elemento == 1
-  #           print ' * '.white
-  #         else
-  #           print ' . '.black
-  #         end
-  #       end
-  #       print "\n"
-  #     end
-  #   end
-
   def dead_or_alive(matriz)
     new_matriz = Array.new(matriz.length) { Array.new(matriz[0].length) {} }
     neighboors(matriz).each_with_index do |vecinos, index_vecinos|

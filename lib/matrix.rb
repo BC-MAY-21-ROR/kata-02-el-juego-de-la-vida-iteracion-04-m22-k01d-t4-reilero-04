@@ -1,20 +1,6 @@
 # frozen_string_literal: true
 
-# class Matrix
-#   # def initialize(height, width)
-#   #   @height = height
-#   #   @width = width
-#   # end
-
-#   def create(height, width)
-#     Array.new(height) { Array.new(width) { '.' } }
-#   end
-
-#   private
-
-#   attr_reader :height, :width
-# end
-
+# The Matrix class is responsible for create a base table with a bidimensional array
 class Matrix
   def initialize(height, width)
     @height = height
